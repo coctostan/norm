@@ -55,20 +55,20 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - None active
 
 ### Git State
-Last commit: db02cf1 wip(01-backend-core): paused at plan 01-03
-Branch: feature/01-03-file-watcher
+Last commit: 76540f1 feat(01-backend-core): file watcher + phase 1 complete (#2)
+Branch: main
 
 ## Session Continuity
 
 Last session: 2026-03-13
-Stopped at: Phase 1 complete, ready to plan Phase 2
-Next action: Commit phase work, then /paul:plan for Phase 2
-Resume file: .paul/ROADMAP.md
+Stopped at: Phase 1 complete, Phase 2 ready to plan
+Next action: /paul:plan for Phase 2 (API & WebSocket)
+Resume file: .paul/HANDOFF-2026-03-13.md
 Resume context:
-- Phase 1 complete: 3/3 plans, 35 tests, all passing
+- Phase 1 complete: 3/3 plans, 35 tests, all passing, PR #2 merged (76540f1)
 - Backend has: FastAPI server, SQLite schema, project registry, markdown parsers, file watcher
 - Phase 2 next: API & WebSocket — REST endpoints + real-time push
-- Working on feature/01-03-file-watcher branch (needs commit + PR)
+- On main branch, clean working tree
 
 ---
 *STATE.md — Updated after every significant action*
