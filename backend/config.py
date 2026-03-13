@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     host: str = "0.0.0.0"
     port: int = 8000
     config_path: Path = Path("norm.yaml")
+    watch_debounce_ms: int = 1000
 
 
 settings = Settings()

@@ -8,13 +8,13 @@ NORM — Notifier & Observer for Running Milestones. A real-time monitoring dash
 
 **v0.1 Foundation** (v0.1.0)
 Status: 🚧 In Progress
-Phases: 0 of 4 complete
+Phases: 1 of 4 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
-| 1 | Backend Core | 3 | In progress | - |
+| 1 | Backend Core | 3 | ✅ Complete | 2026-03-13 |
 | 2 | API & WebSocket | TBD | Not started | - |
 | 3 | Frontend Shell | TBD | Not started | - |
 | 4 | Detail Views & Polish | TBD | Not started | - |
@@ -35,9 +35,9 @@ Phases: 0 of 4 complete
 - Project registry — add/remove PALS project paths
 
 **Plans:**
-- [ ] 01-01: FastAPI scaffolding + SQLite schema + Project registry
-- [ ] 01-02: Markdown parser for PALS state files
-- [ ] 01-03: File watcher with change detection
+- [x] 01-01: FastAPI scaffolding + SQLite schema + Project registry
+- [x] 01-02: Markdown parser for PALS state files
+- [x] 01-03: File watcher with change detection
 
 ### Phase 2: API & WebSocket
 
@@ -89,4 +89,4 @@ Phases: 0 of 4 complete
 
 ---
 *Roadmap created: 2026-03-13*
-*Last updated: 2026-03-13*
+*Last updated: 2026-03-13 — Phase 1 complete*

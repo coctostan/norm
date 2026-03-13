@@ -5,12 +5,17 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.database import init_db
 from backend.registry import router as projects_router
+from backend.watcher import FileWatcher
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await init_db()
+    watcher = FileWatcher()
+    await watcher.start()
+    app.state.watcher = watcher
     yield
+    await watcher.stop()
 
 
 app = FastAPI(

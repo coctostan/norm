@@ -1,16 +1,26 @@
 {
   "permissions": {
     "allow": [
-      "Skill(paul:milestone)",
-      "Skill(paul:plan)",
-      "Read(//Users/maxwellnewman/.pals/**)",
-      "Bash(echo \"EXIT:$?\")",
-      "Bash(ls /Users/maxwellnewman/.pals/modules/*/module.yaml 2>/dev/null)",
-      "Bash(find /Users/maxwellnewman/.pals -name \"*.yaml\" -o -name \"*.yml\" 2>/dev/null | head -20)",
-      "Skill(paul:apply)",
-      "Bash(git status:*)",
-      "Bash(git add:*)",
-      "Bash(git rm:*)"
+      "Bash(*)",
+      "Read(*)",
+      "Edit(*)",
+      "Write(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "Skill(*)",
+      "Agent(*)",
+      "WebSearch",
+      "WebFetch(domain:www.eesel.ai)",
+      "WebFetch(domain:www.turboai.dev)",
+      "WebFetch(domain:gist.github.com)"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Bash(rm -rf ~)",
+      "Bash(rm -r *)",
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -fd*)"
     ]
   }
 }
