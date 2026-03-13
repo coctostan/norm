@@ -13,7 +13,7 @@ Developers managing multiple PALS projects can see the state of all their work i
 | Attribute | Value |
 |-----------|-------|
 | Version | 0.1.0-alpha |
-| Status | Backend Core complete |
+| Status | Backend Core + API & WebSocket complete |
 | Last Updated | 2026-03-13 |
 
 ## Requirements
@@ -23,12 +23,14 @@ Developers managing multiple PALS projects can see the state of all their work i
 - [x] Project registry — add/remove PALS project paths to monitor — Phase 1
 - [x] Markdown parsing — parse STATE.md, ROADMAP.md, PROJECT.md into structured data — Phase 1
 - [x] File watching — detect changes to .paul/ files in real-time via watchfiles — Phase 1
+- [x] Dashboard API — all projects with inline state in single endpoint — Phase 2
+- [x] Real-time updates — WebSocket push when .paul/ files change — Phase 2
+- [x] WebSocket connection management — connect/disconnect/broadcast lifecycle — Phase 2
 
 ### Active (In Progress)
 
 - [ ] Multi-project dashboard — cards showing phase, loop position, progress for each project
 - [ ] Project detail view — roadmap, recent activity, decisions, blockers
-- [ ] Real-time updates — WebSocket push when STATE.md changes
 - [ ] Blocker/alert surfacing — highlight projects with active blockers at top level
 - [ ] Dark mode — monitoring tools should be dark-first
 
@@ -85,6 +87,8 @@ Developers managing multiple PALS projects can see the state of all their work i
 | Build from scratch (not on Dashy/Grafana) | Existing frameworks fight the PALS data model | 2026-03-13 | Active |
 | aiosqlite direct (no ORM) | Cache layer, not primary storage — simpler | 2026-03-13 | Active |
 | Regex parsing over markdown AST | No new deps, structured md has consistent formatting | 2026-03-13 | Active |
+| on_sync callback for watcher extensibility | Decouples sync from notification, backward compatible | 2026-03-13 | Active |
+| Broadcast full project list on state change | Simpler than per-project deltas, frontend gets complete state | 2026-03-13 | Active |
 
 ## Tech Stack
 
@@ -121,4 +125,4 @@ Quick Reference:
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-03-13 after Phase 1*
+*Last updated: 2026-03-13 after Phase 2*

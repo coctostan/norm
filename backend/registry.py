@@ -6,6 +6,7 @@ from backend.database import get_db
 from backend.models import (
     create_project,
     delete_project,
+    get_dashboard_projects,
     get_project,
     get_project_phases,
     get_project_state,
@@ -15,9 +16,22 @@ from backend.models import (
     upsert_project_state,
 )
 from backend.parser import parse_project_state
-from backend.schemas import ProjectCreate, ProjectList, ProjectResponse, ProjectStateResponse
+from backend.schemas import (
+    DashboardResponse,
+    ProjectCreate,
+    ProjectList,
+    ProjectResponse,
+    ProjectStateResponse,
+)
 
 router = APIRouter(prefix="/api/projects", tags=["projects"])
+dashboard_router = APIRouter(tags=["dashboard"])
+
+
+@dashboard_router.get("/api/dashboard", response_model=DashboardResponse)
+async def get_dashboard(db=Depends(get_db)):
+    projects = await get_dashboard_projects(db)
+    return DashboardResponse(projects=projects, count=len(projects))
 
 
 @router.post("/", response_model=ProjectResponse, status_code=201)

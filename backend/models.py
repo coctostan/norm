@@ -124,3 +124,30 @@ async def get_project_phases(db: aiosqlite.Connection, project_id: int) -> list[
         (project_id,),
     )
     return [dict(row) for row in rows]
+
+
+async def get_dashboard_projects(db: aiosqlite.Connection) -> list[dict]:
+    rows = await db.execute_fetchall(
+        """SELECT
+            p.id, p.name, p.path, p.status, p.last_synced, p.created_at,
+            s.milestone, s.phase_number, s.phase_total, s.phase_name,
+            s.loop_plan, s.loop_apply, s.loop_unify,
+            s.progress_milestone, s.progress_phase,
+            s.plan AS plan_status, s.last_activity,
+            s.blockers_json
+        FROM projects p
+        LEFT JOIN project_state s ON p.id = s.project_id
+        ORDER BY p.created_at DESC"""
+    )
+    result = []
+    for row in rows:
+        d = dict(row)
+        blockers_json = d.pop("blockers_json", None)
+        blockers = json.loads(blockers_json) if blockers_json else []
+        d["blocker_count"] = len(blockers)
+        # Coerce NULL booleans from LEFT JOIN to False
+        for key in ("loop_plan", "loop_apply", "loop_unify"):
+            if d.get(key) is None:
+                d[key] = False
+        result.append(d)
+    return result

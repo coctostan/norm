@@ -5,19 +5,19 @@
 See: .paul/PROJECT.md (updated 2026-03-13)
 
 **Core value:** Developers managing multiple PALS projects can see the state of all their work in one place
-**Current focus:** v0.1 Foundation — Phase 2: API & WebSocket
+**Current focus:** v0.1 Foundation — Phase 3: Frontend Shell
 
 ## Current Position
 
 Milestone: v0.1 Foundation (v0.1.0)
-Phase: 2 of 4 (API & WebSocket)
+Phase: 3 of 4 (Frontend Shell)
 Plan: Not started
 Status: Ready to plan
-Last activity: 2026-03-13 — Phase 1 complete, transitioned to Phase 2
+Last activity: 2026-03-13 — Phase 2 complete, transitioned to Phase 3
 
 Progress:
-- v0.1 Foundation: [███░░░░░░░] 25%
-- Phase 2: [░░░░░░░░░░] 0%
+- v0.1 Foundation: [█████░░░░░] 50%
+- Phase 3: [░░░░░░░░░░] 0%
 
 ## Loop Position
 
@@ -30,9 +30,9 @@ PLAN ──▶ APPLY ──▶ UNIFY
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
-- Average duration: ~10 min
-- Total execution time: ~0.5 hours
+- Total plans completed: 4
+- Average duration: ~12 min
+- Total execution time: ~0.75 hours
 
 ## Accumulated Context
 
@@ -47,6 +47,8 @@ PLAN ──▶ APPLY ──▶ UNIFY
 | Regex parsing over markdown AST | Phase 1 | No new deps, simpler for structured md |
 | Flat cache table + JSON columns | Phase 1 | Simpler queries for blockers/decisions |
 | Per-change DB connection in watcher | Phase 1 | Simpler lifecycle, no stale connections |
+| on_sync callback for watcher extensibility | Phase 2 | Decouples sync from notification |
+| Broadcast full project list on change | Phase 2 | Frontend gets complete state each update |
 
 ### Deferred Issues
 - None
@@ -61,14 +63,14 @@ Branch: main
 ## Session Continuity
 
 Last session: 2026-03-13
-Stopped at: Phase 1 complete, Phase 2 ready to plan
-Next action: /paul:plan for Phase 2 (API & WebSocket)
-Resume file: .paul/HANDOFF-2026-03-13.md
+Stopped at: Phase 2 complete, Phase 3 ready to plan
+Next action: /paul:plan for Phase 3 (Frontend Shell)
+Resume file: .paul/ROADMAP.md
 Resume context:
-- Phase 1 complete: 3/3 plans, 35 tests, all passing, PR #2 merged (76540f1)
-- Backend has: FastAPI server, SQLite schema, project registry, markdown parsers, file watcher
-- Phase 2 next: API & WebSocket — REST endpoints + real-time push
-- On main branch, clean working tree
+- Phase 2 complete: 1/1 plan, 46 tests, all passing
+- Backend has: REST API (dashboard + CRUD + sync + state), WebSocket server, file watcher with broadcast
+- Phase 3 next: Frontend Shell — SvelteKit + shadcn-svelte + WebSocket client
+- Branch: feature/02-01-api-websocket (pending commit + merge)
 
 ---
 *STATE.md — Updated after every significant action*
