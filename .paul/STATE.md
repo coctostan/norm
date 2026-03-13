@@ -11,13 +11,13 @@ See: .paul/PROJECT.md (updated 2026-03-13)
 
 Milestone: v0.1 Foundation (v0.1.0)
 Phase: 1 of 4 (Backend Core)
-Plan: 01-01 complete, 01-02 next
+Plan: 01-02 complete, 01-03 next
 Status: Ready for next PLAN
-Last activity: 2026-03-13 — Plan 01-01 unified (5/5 tasks, 6/6 AC passed)
+Last activity: 2026-03-13 — Plan 01-02 unified (2/2 tasks, 6/6 AC passed)
 
 Progress:
-- v0.1 Foundation: [█░░░░░░░░░] 8%
-- Phase 1: [███░░░░░░░] 33% (1/3 plans)
+- v0.1 Foundation: [██░░░░░░░░] 17%
+- Phase 1: [██████░░░░] 67% (2/3 plans)
 
 ## Loop Position
 
@@ -30,9 +30,9 @@ PLAN ──▶ APPLY ──▶ UNIFY
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: ~20 min
-- Total execution time: ~0.3 hours
+- Total plans completed: 2
+- Average duration: ~15 min
+- Total execution time: ~0.5 hours
 
 ## Accumulated Context
 
@@ -47,6 +47,8 @@ PLAN ──▶ APPLY ──▶ UNIFY
 | Phase 1 split: 3 plans | Phase 1 | Scaffolding → Parser → Watcher |
 | Trunk-based + conventional commits | Phase 1 | Solo dev, PR required, no approvals |
 | Public repo | Phase 1 | Free-tier branch protection rulesets |
+| Regex parsing over markdown AST | Phase 1 | No new deps, simpler for structured md |
+| Flat cache table + JSON columns | Phase 1 | Simpler queries for blockers/decisions |
 
 ### Deferred Issues
 - None
@@ -61,14 +63,14 @@ Branch: main
 ## Session Continuity
 
 Last session: 2026-03-13
-Stopped at: Plan 01-01 unified — backend scaffolding complete
-Next action: /paul:plan for Plan 01-02 (Markdown parser)
-Resume file: .paul/HANDOFF-2026-03-13.md
+Stopped at: Plan 01-02 unified — markdown parser + state cache complete
+Next action: /paul:plan for Plan 01-03 (File watcher)
+Resume file: .paul/phases/01-backend-core/01-02-SUMMARY.md
 Resume context:
-- Plan 01-01 complete: FastAPI + SQLite + registry API all working
-- Plan 01-02 next: markdown parser for STATE.md, ROADMAP.md, PROJECT.md
-- Plan 01-03 after: file watcher with watchfiles
-- CI hasn't run yet — will validate on first PR
+- Plan 01-02 complete: parsers, cache tables, sync/state endpoints, 21 tests
+- Plan 01-03 next: file watcher with watchfiles for real-time change detection
+- Phase 1 at 67% (2/3 plans complete)
+- Work uncommitted on feature/01-backend-core branch
 
 ---
 *STATE.md — Updated after every significant action*
