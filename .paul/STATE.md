@@ -57,20 +57,22 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - None active
 
 ### Git State
-Last commit: 747ed27 feat: initial project scaffolding
+Last commit: 4fad924 feat(phase-1): backend core — scaffolding + markdown parser (#1)
 Branch: main
 
 ## Session Continuity
 
 Last session: 2026-03-13
-Stopped at: Plan 01-02 unified — markdown parser + state cache complete
+Stopped at: Plan 01-02 unified, PR merged, branch cleaned up
 Next action: /paul:plan for Plan 01-03 (File watcher)
-Resume file: .paul/phases/01-backend-core/01-02-SUMMARY.md
+Resume file: .paul/HANDOFF-2026-03-13.md
 Resume context:
 - Plan 01-02 complete: parsers, cache tables, sync/state endpoints, 21 tests
+- PR #1 squash-merged to main (4fad924), feature branch deleted
 - Plan 01-03 next: file watcher with watchfiles for real-time change detection
 - Phase 1 at 67% (2/3 plans complete)
-- Work uncommitted on feature/01-backend-core branch
+- Experimental Claude Code features enabled (agent teams, subagent worktrees, streaming)
+- settings.local.json loosened — broad allow with deny for destructive ops
 
 ---
 *STATE.md — Updated after every significant action*
