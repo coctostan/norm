@@ -8,7 +8,7 @@ NORM — Notifier & Observer for Running Milestones. A real-time monitoring dash
 
 **v0.2 Operational** (v0.2.0)
 Status: 🚧 In Progress
-Phases: 0 of 3 complete
+Phases: 1 of 3 complete
 
 ## Milestones
 
@@ -25,7 +25,7 @@ Phases: 0 of 3 complete
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
-| 5 | Startup & Registration | 1 | Planning | - |
+| 5 | Startup & Registration | 1 | ✅ Complete | 2026-03-14 |
 | 6 | E2E Validation & Bug Fixes | TBD | Not started | - |
 | 7 | Resilience & Polish | TBD | Not started | - |
 
@@ -112,7 +112,7 @@ Phases: 0 of 3 complete
 - Config file persistence (projects survive restart)
 
 **Plans:**
-- TBD (defined during /paul:plan)
+- [x] 05-01: Config file persistence + startup scripts (dev + prod)
 
 ### Phase 6: E2E Validation & Bug Fixes (v0.2)
 
@@ -147,4 +147,4 @@ Phases: 0 of 3 complete
 
 ---
 *Roadmap created: 2026-03-13*
-*Last updated: 2026-03-14 — v0.2 Operational milestone created*
+*Last updated: 2026-03-14 — Phase 5 complete*

@@ -14,7 +14,7 @@
 	);
 
 	let phaseProgress = $derived(
-		project.progress_phase != null ? Math.round(project.progress_phase * 100) : 0
+		project.progress_phase != null ? Math.round(project.progress_phase) : 0
 	);
 </script>
 

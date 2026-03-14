@@ -1,5 +1,4 @@
 projects: []
-
 settings:
   port: 8000
-  db_path: "norm.db"
+  db_path: norm.db

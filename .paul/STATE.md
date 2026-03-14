@@ -10,29 +10,29 @@ See: .paul/PROJECT.md (updated 2026-03-14)
 ## Current Position
 
 Milestone: v0.2 Operational (v0.2.0)
-Phase: 5 of 7 (Startup & Registration)
-Plan: 05-01 created, awaiting approval
-Status: PLAN created, ready for APPLY
-Last activity: 2026-03-14 — Created plan 05-01 (startup scripts + config persistence)
+Phase: 6 of 7 (E2E Validation & Bug Fixes)
+Plan: Not started
+Status: Ready to plan
+Last activity: 2026-03-14 — Phase 5 complete, transitioned to Phase 6
 
 Progress:
-- v0.2 Operational: [░░░░░░░░░░] 0%
-- Phase 5: [░░░░░░░░░░] 0%
+- v0.2 Operational: [███░░░░░░░] 33%
+- Phase 6: [░░░░░░░░░░] 0%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ○        ○     [Plan created, awaiting approval]
+  ○        ○        ○     [Ready for next PLAN]
 ```
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
+- Total plans completed: 9
 - Average duration: ~14 min
-- Total execution time: ~1.6 hours
+- Total execution time: ~1.9 hours
 
 ## Accumulated Context
 
@@ -54,6 +54,8 @@ PLAN ──▶ APPLY ──▶ UNIFY
 | onclick+goto for Card navigation | Phase 4 | Svelte component nesting prevents `<a>` wrapping |
 | No Playwright/e2e for v0.1 | Phase 4 | Unit + integration sufficient for alpha |
 | Testable store mirror class | Phase 4 | Svelte 5 $state runes can't run outside compiler |
+| load_config/save_config as plain functions | Phase 5 | Simple, matches existing config.py style |
+| save_config preserves YAML settings section | Phase 5 | User settings survive project mutations |
 
 ### Deferred Issues
 - None
@@ -68,14 +70,14 @@ Branch: main
 ## Session Continuity
 
 Last session: 2026-03-14
-Stopped at: Plan 05-01 created, approved, ready for APPLY
-Next action: /paul:apply .paul/phases/05-startup-registration/05-01-PLAN.md
-Resume file: .paul/HANDOFF-2026-03-14-p5.md
+Stopped at: Phase 5 complete, ready to plan Phase 6
+Next action: /paul:plan for Phase 6
+Resume file: .paul/ROADMAP.md
 Resume context:
-- Plan 05-01: Config file persistence + startup scripts (dev + prod)
-- 2 auto tasks + 1 human-verify checkpoint
-- No frontend changes — backend + shell scripting only
-- v0.1 milestone complete, CI green, PR #4 merged, git clean on main
+- Phase 5 complete: config persistence + startup scripts
+- v0.2 Operational: 1/3 phases done
+- Phase 6: E2E Validation & Bug Fixes — register real projects, smoke test full loop
+- 29 backend + 10 frontend tests pass, 0 TS errors
 
 ---
 *STATE.md — Updated after every significant action*

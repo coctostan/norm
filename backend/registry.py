@@ -2,6 +2,7 @@ import os
 
 from fastapi import APIRouter, Depends, HTTPException
 
+from backend.config import save_config
 from backend.database import get_db
 from backend.models import (
     create_project,
@@ -53,6 +54,11 @@ async def register_project(project: ProjectCreate, db=Depends(get_db)):
                 detail=f"Project already registered at: {abs_path}",
             )
         raise
+
+    # Persist to config file
+    all_projects = await list_projects(db)
+    save_config(all_projects)
+
     return result
 
 
@@ -75,6 +81,10 @@ async def remove_project(project_id: int, db=Depends(get_db)):
     deleted = await delete_project(db, project_id)
     if not deleted:
         raise HTTPException(status_code=404, detail="Project not found")
+
+    # Persist to config file
+    all_projects = await list_projects(db)
+    save_config(all_projects)
 
 
 @router.post("/{project_id}/sync", response_model=ProjectStateResponse)
