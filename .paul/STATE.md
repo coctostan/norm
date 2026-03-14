@@ -11,28 +11,28 @@ See: .paul/PROJECT.md (updated 2026-03-13)
 
 Milestone: v0.1 Foundation (v0.1.0)
 Phase: 4 of 4 (Detail Views & Polish)
-Plan: Not started
-Status: Ready to plan
-Last activity: 2026-03-13 — Phase 3 complete, transitioned to Phase 4
+Plan: 04-02 created, awaiting approval
+Status: PLAN created, ready for APPLY
+Last activity: 2026-03-13 — Created 04-02 (dark mode polish + adapter-node)
 
 Progress:
-- v0.1 Foundation: [███████░░░] 75%
-- Phase 4: [░░░░░░░░░░] 0%
+- v0.1 Foundation: [████████░░] 83%
+- Phase 4: [███░░░░░░░] 33%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [Loop complete — ready for next PLAN]
+  ✓        ○        ○     [Plan created, awaiting approval]
 ```
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
+- Total plans completed: 6
 - Average duration: ~15 min
-- Total execution time: ~1 hour
+- Total execution time: ~1.25 hours
 
 ## Accumulated Context
 
@@ -51,6 +51,7 @@ PLAN ──▶ APPLY ──▶ UNIFY
 | Broadcast full project list on change | Phase 2 | Frontend gets complete state each update |
 | Class-based $state WebSocket store | Phase 3 | Svelte 5 runes pattern, cleaner than stores |
 | Vite proxy for /api and /ws in dev | Phase 3 | Avoids CORS, single origin in dev |
+| onclick+goto for Card navigation | Phase 4 | Svelte component nesting prevents `<a>` wrapping |
 
 ### Deferred Issues
 - No frontend tests (deferred to Phase 4)
@@ -66,15 +67,14 @@ Branch: main
 ## Session Continuity
 
 Last session: 2026-03-13
-Stopped at: Phase 3 complete, Phase 4 ready to plan
-Next action: /paul:plan for Phase 4 (Detail Views & Polish)
-Resume file: .paul/HANDOFF-2026-03-13-p3.md
+Stopped at: Plan 04-02 created, session paused for context limit
+Next action: /paul:apply .paul/phases/04-detail-views-polish/04-02-PLAN.md
+Resume file: .paul/HANDOFF-2026-03-13-p4.md
 Resume context:
-- Phase 3 complete: 1/1 plan, SvelteKit + shadcn-svelte + WebSocket store + dashboard cards
-- Frontend has: dashboard page, project cards, WebSocket client, dark theme
-- Phase 4 next: Detail Views & Polish — project detail page, blocker alerts, LayerChart, e2e tests
-- Required skills for Phase 4: /sveltekit-svelte5-tailwind, /shadcn-svelte (same as Phase 3)
-- Deferred to Phase 4: frontend tests, production adapter config
+- Plan 04-01 complete: detail page, clickable cards, blocker alerts
+- Plan 04-02 created: dark mode polish + adapter-node (awaiting approval)
+- Plan 04-03 not yet planned: testing
+- Required skills: /sveltekit-svelte5-tailwind, /shadcn-svelte
 
 ---
 *STATE.md — Updated after every significant action*

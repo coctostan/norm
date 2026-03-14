@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import type { DashboardProject } from '$lib/types.js';
 	import * as Card from '$lib/components/ui/card/index.js';
 	import { Badge } from '$lib/components/ui/badge/index.js';
@@ -17,7 +18,13 @@
 	);
 </script>
 
-<Card.Root class="flex flex-col">
+<Card.Root
+	class="flex cursor-pointer flex-col transition-colors hover:border-foreground/25"
+	onclick={() => goto(`/project/${project.id}`)}
+	role="link"
+	tabindex={0}
+	onkeydown={(e: KeyboardEvent) => { if (e.key === 'Enter') goto(`/project/${project.id}`); }}
+>
 	<Card.Header class="pb-3">
 		<div class="flex items-start justify-between">
 			<div>

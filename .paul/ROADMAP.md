@@ -17,7 +17,7 @@ Phases: 3 of 4 complete
 | 1 | Backend Core | 3 | ✅ Complete | 2026-03-13 |
 | 2 | API & WebSocket | 1 | ✅ Complete | 2026-03-13 |
 | 3 | Frontend Shell | 1 | ✅ Complete | 2026-03-13 |
-| 4 | Detail Views & Polish | TBD | Not started | - |
+| 4 | Detail Views & Polish | 3 planned | Planning | - |
 
 ## Phase Details
 
@@ -85,7 +85,9 @@ Phases: 3 of 4 complete
 - Performance tuning for 10+ projects
 
 **Plans:**
-- [ ] 04-01: TBD (defined during /paul:plan)
+- [x] 04-01: Project detail page + blocker alert surfacing
+- [ ] 04-02: Dark mode polish + production adapter config
+- [ ] 04-03: Frontend tests + e2e tests + performance validation
 
 ---
 *Roadmap created: 2026-03-13*
