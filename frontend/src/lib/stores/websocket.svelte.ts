@@ -24,8 +24,11 @@ class WebSocketStore {
 	}
 
 	private createConnection() {
-		const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-		const wsUrl = `${protocol}//${window.location.host}/ws`;
+		// In dev mode, connect directly to backend (Vite proxy doesn't reliably handle WebSocket upgrades)
+		// In production, backend serves everything so relative path works
+		const wsUrl = import.meta.env.DEV
+			? 'ws://localhost:8000/ws'
+			: `${window.location.protocol === 'https:' ? 'wss:' : 'ws:'}//${window.location.host}/ws`;
 
 		this.ws = new WebSocket(wsUrl);
 

@@ -1,5 +1,10 @@
-projects: []
-
+projects:
+- name: NORM
+  path: /Users/maxwellnewman/claude/norm
+- name: PALS
+  path: /Users/maxwellnewman/claude/pals
+- name: Quark
+  path: /Users/maxwellnewman/claude/quark
 settings:
   port: 8000
-  db_path: "norm.db"
+  db_path: norm.db

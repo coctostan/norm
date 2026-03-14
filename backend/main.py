@@ -26,7 +26,43 @@ async def _on_sync(project_path: str) -> None:
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    import logging
+    import os
+
+    from backend.config import load_config
+    from backend.models import create_project, list_projects
+    from backend.watcher import sync_project_by_path
+
+    logger = logging.getLogger(__name__)
+
     await init_db()
+
+    # Auto-register projects from norm.yaml
+    config_projects = load_config()
+    if config_projects:
+        async with aiosqlite.connect(settings.database_path) as db:
+            db.row_factory = aiosqlite.Row
+            existing = await list_projects(db)
+            existing_paths = {p["path"] for p in existing}
+            for proj in config_projects:
+                abs_path = os.path.abspath(proj["path"])
+                if abs_path not in existing_paths:
+                    try:
+                        await create_project(db, proj["name"], abs_path)
+                        logger.info("Auto-registered project from config: %s", proj["name"])
+                    except Exception:
+                        logger.warning("Failed to register project from config: %s", proj["name"])
+
+    # Auto-sync all projects on startup so dashboard shows details immediately
+    async with aiosqlite.connect(settings.database_path) as db:
+        db.row_factory = aiosqlite.Row
+        all_projects = await list_projects(db)
+        for proj in all_projects:
+            try:
+                await sync_project_by_path(db, proj["path"])
+            except Exception:
+                logger.warning("Failed to sync project on startup: %s", proj["name"])
+
     watcher = FileWatcher(on_sync=_on_sync)
     await watcher.start()
     app.state.watcher = watcher

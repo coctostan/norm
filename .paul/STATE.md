@@ -5,34 +5,34 @@
 See: .paul/PROJECT.md (updated 2026-03-14)
 
 **Core value:** Developers managing multiple PALS projects can see the state of all their work in one place
-**Current focus:** v0.1 Foundation — MILESTONE COMPLETE
+**Current focus:** v0.2 Operational — Make NORM a daily-use tool
 
 ## Current Position
 
-Milestone: v0.1 Foundation (v0.1.0)
-Phase: 4 of 4 (Detail Views & Polish) — Complete
-Plan: 04-03 unified, loop closed
-Status: Milestone complete
-Last activity: 2026-03-14 — Phase 4 complete, v0.1 Foundation milestone complete
+Milestone: v0.2 Operational (v0.2.0)
+Phase: 7 of 7 (Resilience & Polish)
+Plan: Not started
+Status: Ready to plan
+Last activity: 2026-03-14 — Phase 6 complete, transitioned to Phase 7
 
 Progress:
-- v0.1 Foundation: [██████████] 100%
-- Phase 4: [██████████] 100%
+- v0.2 Operational: [██████░░░░] 66%
+- Phase 7: [░░░░░░░░░░] 0%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [Loop complete — milestone finished]
+  ○        ○        ○     [Ready for next PLAN]
 ```
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
+- Total plans completed: 10
 - Average duration: ~14 min
-- Total execution time: ~1.6 hours
+- Total execution time: ~2.1 hours
 
 ## Accumulated Context
 
@@ -54,6 +54,10 @@ PLAN ──▶ APPLY ──▶ UNIFY
 | onclick+goto for Card navigation | Phase 4 | Svelte component nesting prevents `<a>` wrapping |
 | No Playwright/e2e for v0.1 | Phase 4 | Unit + integration sufficient for alpha |
 | Testable store mirror class | Phase 4 | Svelte 5 $state runes can't run outside compiler |
+| load_config/save_config as plain functions | Phase 5 | Simple, matches existing config.py style |
+| save_config preserves YAML settings section | Phase 5 | User settings survive project mutations |
+| Direct WebSocket URL in dev mode | Phase 6 | Bypasses unreliable Vite WS proxy |
+| Sync all projects on startup | Phase 6 | Dashboard shows full details immediately |
 
 ### Deferred Issues
 - None
@@ -62,19 +66,20 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - None active
 
 ### Git State
-Last commit: 53dd601 (feature/04-detail-views-polish)
-Branch: feature/04-detail-views-polish
+Last commit: 6f81c57 (feature/05-startup-registration, Phase 6 complete)
+Branch: feature/05-startup-registration
 
 ## Session Continuity
 
 Last session: 2026-03-14
-Stopped at: Phase 4 complete, v0.1 Foundation milestone complete
-Next action: /paul:complete-milestone or next milestone planning
+Stopped at: Phase 6 complete, ready to plan Phase 7
+Next action: /paul:plan for Phase 7
 Resume file: .paul/ROADMAP.md
 Resume context:
-- All 4 phases complete (8 plans total)
-- 39 tests passing (29 backend + 10 frontend)
-- Phase transition commit pending
+- Phase 6 complete: auto-sync + WebSocket fix + E2E validated
+- v0.2 Operational: 2/3 phases done
+- Phase 7: Resilience & Polish — reconnection, error handling, performance
+- 29 backend + 10 frontend tests pass, 0 TS errors
 
 ---
 *STATE.md — Updated after every significant action*

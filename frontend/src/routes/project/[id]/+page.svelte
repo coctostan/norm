@@ -11,11 +11,11 @@
 	let project = $derived(data.project);
 
 	let milestoneProgress = $derived(
-		state?.progress_milestone != null ? Math.round(state.progress_milestone * 100) : 0
+		state?.progress_milestone != null ? Math.round(state.progress_milestone) : 0
 	);
 
 	let phaseProgress = $derived(
-		state?.progress_phase != null ? Math.round(state.progress_phase * 100) : 0
+		state?.progress_phase != null ? Math.round(state.progress_phase) : 0
 	);
 
 	function phaseStatusVariant(status: string): 'default' | 'outline' | 'secondary' | 'destructive' {

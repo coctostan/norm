@@ -12,8 +12,8 @@ Developers managing multiple PALS projects can see the state of all their work i
 
 | Attribute | Value |
 |-----------|-------|
-| Version | 0.1.0 |
-| Status | v0.1 Foundation complete — all 4 phases shipped |
+| Version | 0.2.0-dev |
+| Status | v0.2 Operational in progress |
 | Last Updated | 2026-03-14 |
 
 ## Requirements
@@ -32,10 +32,15 @@ Developers managing multiple PALS projects can see the state of all their work i
 - [x] Blocker/alert surfacing — highlight projects with active blockers at top level — Phase 4
 - [x] Backend test suite — 29 tests (parser + API) — Phase 4
 - [x] Frontend test suite — 10 tests (WebSocket store) — Phase 4
+- [x] Unified startup script — single command starts backend + frontend (dev + prod) — Phase 5
+- [x] Config file persistence — projects survive restart via norm.yaml — Phase 5
+- [x] End-to-end validation — full loop verified with real PALS projects — Phase 6
+- [x] Auto-sync on startup/registration — immediate state availability — Phase 6
 
 ### Active (In Progress)
 
-None — v0.1 Foundation complete.
+- [ ] Error handling & resilience — reconnection, watcher recovery, graceful shutdown
+- [ ] Performance validation — smooth operation with 5-10+ projects
 
 ### Planned (Next)
 
@@ -96,6 +101,8 @@ None — v0.1 Foundation complete.
 | Vite proxy for /api and /ws in dev | Avoids CORS config, single origin in development | 2026-03-13 | Active |
 | No Playwright/e2e for v0.1 | Unit + integration tests sufficient for alpha | 2026-03-14 | Active |
 | Testable store mirror class | Svelte 5 $state runes can't run outside compiler | 2026-03-14 | Active |
+| load_config/save_config as plain functions | Simple, matches config.py style | 2026-03-14 | Active |
+| save_config preserves YAML settings section | User settings survive project mutations | 2026-03-14 | Active |
 
 ## Tech Stack
 
@@ -132,4 +139,4 @@ Quick Reference:
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-03-14 after Phase 4 — v0.1 Foundation complete*
+*Last updated: 2026-03-14 after Phase 6 — E2E Validation complete*
