@@ -35,6 +35,8 @@ async def lifespan(app: FastAPI):
 
     logger = logging.getLogger(__name__)
 
+    app.state.shutting_down = False
+
     await init_db()
 
     # Auto-register projects from norm.yaml
@@ -67,7 +69,21 @@ async def lifespan(app: FastAPI):
     await watcher.start()
     app.state.watcher = watcher
     yield
+
+    # Graceful shutdown sequence
+    logger.info("Shutting down NORM...")
+    app.state.shutting_down = True
+
+    # Close all WebSocket connections with 1001 (going away)
+    for connection in list(manager.active_connections):
+        try:
+            await connection.close(code=1001, reason="Server shutting down")
+        except Exception:
+            pass
+    manager.active_connections.clear()
+
     await watcher.stop()
+    logger.info("NORM shutdown complete")
 
 
 app = FastAPI(
@@ -96,6 +112,8 @@ async def health():
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
+    import asyncio
+
     await manager.connect(websocket)
     try:
         # Send initial state snapshot
@@ -103,8 +121,17 @@ async def websocket_endpoint(websocket: WebSocket):
             db.row_factory = aiosqlite.Row
             projects = await get_dashboard_projects(db)
         await manager.send_personal(websocket, {"type": "initial_state", "projects": projects})
-        # Keep-alive loop — detect disconnects
-        while True:
-            await websocket.receive_text()
+        # Keep-alive loop with ping on idle timeout
+        while not getattr(app.state, "shutting_down", False):
+            try:
+                await asyncio.wait_for(websocket.receive_text(), timeout=30.0)
+            except asyncio.TimeoutError:
+                # No message received in 30s — send ping to keep connection alive
+                try:
+                    await websocket.send_json({"type": "ping"})
+                except Exception:
+                    break
     except WebSocketDisconnect:
+        pass
+    finally:
         manager.disconnect(websocket)

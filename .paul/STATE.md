@@ -9,30 +9,30 @@ See: .paul/PROJECT.md (updated 2026-03-14)
 
 ## Current Position
 
-Milestone: v0.2 Operational (v0.2.0)
-Phase: 7 of 7 (Resilience & Polish)
-Plan: Not started
-Status: Ready to plan
-Last activity: 2026-03-14 — Phase 6 complete, transitioned to Phase 7
+Milestone: v0.2 Operational (v0.2.0) — COMPLETE
+Phase: 7 of 7 (Resilience & Polish) — Complete
+Plan: All plans complete
+Status: v0.2 milestone complete
+Last activity: 2026-03-14 — Phase 7 complete, v0.2 milestone done
 
 Progress:
-- v0.2 Operational: [██████░░░░] 66%
-- Phase 7: [░░░░░░░░░░] 0%
+- v0.2 Operational: [██████████] 100%
+- Phase 7: [██████████] 100%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ○        ○        ○     [Ready for next PLAN]
+  ✓        ✓        ✓     [All loops closed — milestone complete]
 ```
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 10
-- Average duration: ~14 min
-- Total execution time: ~2.1 hours
+- Total plans completed: 12
+- Average duration: ~12 min
+- Total execution time: ~2.4 hours
 
 ## Accumulated Context
 
@@ -58,6 +58,9 @@ PLAN ──▶ APPLY ──▶ UNIFY
 | save_config preserves YAML settings section | Phase 5 | User settings survive project mutations |
 | Direct WebSocket URL in dev mode | Phase 6 | Bypasses unreliable Vite WS proxy |
 | Sync all projects on startup | Phase 6 | Dashboard shows full details immediately |
+| Per-connection ping via asyncio.wait_for | Phase 7 | Simpler than background ping task |
+| app.state.shutting_down flag | Phase 7 | Coordinated shutdown across endpoints |
+| $effect + wasReconnecting for banner | Phase 7 | Avoids green flash on initial load |
 
 ### Deferred Issues
 - None
@@ -72,14 +75,13 @@ Branch: feature/05-startup-registration
 ## Session Continuity
 
 Last session: 2026-03-14
-Stopped at: Phase 6 complete, ready to plan Phase 7
-Next action: /paul:plan for Phase 7
+Stopped at: v0.2 milestone complete
+Next action: /paul:complete-milestone or start next milestone
 Resume file: .paul/ROADMAP.md
 Resume context:
-- Phase 6 complete: auto-sync + WebSocket fix + E2E validated
-- v0.2 Operational: 2/3 phases done
-- Phase 7: Resilience & Polish — reconnection, error handling, performance
-- 29 backend + 10 frontend tests pass, 0 TS errors
+- v0.2 Operational: 7/7 phases, 12/12 plans complete
+- 53 backend tests + 10 frontend tests, 0 TS errors
+- All resilience features shipped: graceful shutdown, watcher recovery, WS ping, connection banner
 
 ---
 *STATE.md — Updated after every significant action*

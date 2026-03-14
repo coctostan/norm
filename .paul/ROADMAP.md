@@ -7,8 +7,8 @@ NORM — Notifier & Observer for Running Milestones. A real-time monitoring dash
 ## Current Milestone
 
 **v0.2 Operational** (v0.2.0)
-Status: 🚧 In Progress
-Phases: 2 of 3 complete
+Status: ✅ Complete
+Phases: 3 of 3 complete
 
 ## Milestones
 
@@ -21,13 +21,13 @@ Phases: 2 of 3 complete
 | 3 | Frontend Shell | 1 | ✅ Complete | 2026-03-13 |
 | 4 | Detail Views & Polish | 3 | ✅ Complete | 2026-03-14 |
 
-### v0.2 Operational (v0.2.0) — 🚧 In Progress
+### v0.2 Operational (v0.2.0) — ✅ Complete
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
 | 5 | Startup & Registration | 1 | ✅ Complete | 2026-03-14 |
 | 6 | E2E Validation & Bug Fixes | 1 | ✅ Complete | 2026-03-14 |
-| 7 | Resilience & Polish | TBD | Not started | - |
+| 7 | Resilience & Polish | 2 | ✅ Complete | 2026-03-14 |
 
 ## Phase Details
 
@@ -143,8 +143,9 @@ Phases: 2 of 3 complete
 - Error boundaries in frontend (connection lost, API errors)
 
 **Plans:**
-- TBD (defined during /paul:plan)
+- [x] 07-01: Backend resilience — graceful shutdown, watcher recovery, WS ping/pong
+- [x] 07-02: Frontend resilience — connection status banner, ping handling, stale indicator
 
 ---
 *Roadmap created: 2026-03-13*
-*Last updated: 2026-03-14 — Phase 6 complete*
+*Last updated: 2026-03-14 — Phase 7 complete, v0.2 milestone done*

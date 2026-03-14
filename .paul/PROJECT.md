@@ -12,8 +12,8 @@ Developers managing multiple PALS projects can see the state of all their work i
 
 | Attribute | Value |
 |-----------|-------|
-| Version | 0.2.0-dev |
-| Status | v0.2 Operational in progress |
+| Version | 0.2.0 |
+| Status | v0.2 Operational complete |
 | Last Updated | 2026-03-14 |
 
 ## Requirements
@@ -36,11 +36,12 @@ Developers managing multiple PALS projects can see the state of all their work i
 - [x] Config file persistence — projects survive restart via norm.yaml — Phase 5
 - [x] End-to-end validation — full loop verified with real PALS projects — Phase 6
 - [x] Auto-sync on startup/registration — immediate state availability — Phase 6
+- [x] Error handling & resilience — reconnection, watcher recovery, graceful shutdown — Phase 7
+- [x] Performance validation — smooth operation with 5-10+ projects — Phase 7
 
 ### Active (In Progress)
 
-- [ ] Error handling & resilience — reconnection, watcher recovery, graceful shutdown
-- [ ] Performance validation — smooth operation with 5-10+ projects
+None — v0.2 complete
 
 ### Planned (Next)
 
@@ -139,4 +140,4 @@ Quick Reference:
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-03-14 after Phase 6 — E2E Validation complete*
+*Last updated: 2026-03-14 after Phase 7 — Resilience & Polish complete, v0.2 milestone done*
