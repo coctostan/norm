@@ -62,7 +62,7 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - None active
 
 ### Git State
-Last commit: 7d1ac2b (feature/04-detail-views-polish)
+Last commit: 53dd601 (feature/04-detail-views-polish)
 Branch: feature/04-detail-views-polish
 
 ## Session Continuity
