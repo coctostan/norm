@@ -1,10 +1,6 @@
 projects:
-- name: NORM
-  path: /Users/maxwellnewman/claude/norm
-- name: PALS
-  path: /Users/maxwellnewman/claude/pals
-- name: Quark
-  path: /Users/maxwellnewman/claude/quark
+- name: TestProj
+  path: /var/folders/gw/8yg8rbgd0r7fx_7mlssdcg6c0000gn/T/tmp_s11bhol
 settings:
   port: 8000
   db_path: norm.db

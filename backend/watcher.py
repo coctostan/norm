@@ -118,7 +118,20 @@ class FileWatcher:
                     except asyncio.TimeoutError:
                         continue
 
-                paul_dirs = list(watch_paths.keys())
+                # Filter to paths that still exist (directory may have been removed between checks)
+                paul_dirs = [p for p in watch_paths if os.path.isdir(p)]
+                if not paul_dirs:
+                    logger.warning("All watched directories missing, waiting 5s...")
+                    try:
+                        await asyncio.wait_for(self._stop_event.wait(), timeout=5.0)
+                        break
+                    except asyncio.TimeoutError:
+                        continue
+
+                if len(paul_dirs) < len(watch_paths):
+                    missing = set(watch_paths) - set(paul_dirs)
+                    logger.warning("Skipping missing directories: %s", missing)
+
                 logger.info("Watching %d project(s): %s", len(paul_dirs), paul_dirs)
 
                 async for changes in awatch(
@@ -135,9 +148,15 @@ class FileWatcher:
                             continue
                         project_path = _path_to_project_path(changed_path)
                         if project_path and project_path not in synced_paths:
-                            async with aiosqlite.connect(settings.database_path) as db:
-                                db.row_factory = aiosqlite.Row
-                                synced = await sync_project_by_path(db, project_path)
+                            try:
+                                async with aiosqlite.connect(settings.database_path) as db:
+                                    db.row_factory = aiosqlite.Row
+                                    synced = await sync_project_by_path(db, project_path)
+                            except (OSError, FileNotFoundError):
+                                logger.warning(
+                                    "Directory disappeared during sync: %s", project_path
+                                )
+                                synced = False
                             if synced and self._on_sync:
                                 try:
                                     await self._on_sync(project_path)

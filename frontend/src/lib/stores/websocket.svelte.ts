@@ -3,6 +3,8 @@ import type { DashboardProject } from '$lib/types.js';
 class WebSocketStore {
 	projects = $state<DashboardProject[]>([]);
 	connected = $state(false);
+	reconnecting = $state(false);
+	lastUpdated = $state<Date | null>(null);
 
 	private ws: WebSocket | null = null;
 	private reconnectDelay = 1000;
@@ -21,6 +23,7 @@ class WebSocketStore {
 			this.ws = null;
 		}
 		this.connected = false;
+		this.reconnecting = false;
 	}
 
 	private createConnection() {
@@ -34,14 +37,20 @@ class WebSocketStore {
 
 		this.ws.onopen = () => {
 			this.connected = true;
+			this.reconnecting = false;
 			this.reconnectDelay = 1000;
 		};
 
 		this.ws.onmessage = (event) => {
 			const data = JSON.parse(event.data);
 
+			if (data.type === 'ping') {
+				return;
+			}
+
 			if (data.type === 'initial_state' || data.type === 'project_updated') {
 				this.projects = data.projects;
+				this.lastUpdated = new Date();
 			}
 		};
 
@@ -50,6 +59,7 @@ class WebSocketStore {
 			this.ws = null;
 
 			if (this.shouldReconnect) {
+				this.reconnecting = true;
 				setTimeout(() => {
 					this.createConnection();
 					this.reconnectDelay = Math.min(this.reconnectDelay * 2, this.maxReconnectDelay);

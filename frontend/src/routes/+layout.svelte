@@ -2,6 +2,7 @@
 	import '../app.css';
 	import { onMount } from 'svelte';
 	import { wsStore } from '$lib/stores/websocket.svelte.js';
+	import ConnectionStatus from '$lib/components/ConnectionStatus.svelte';
 
 	let { children } = $props();
 
@@ -16,6 +17,7 @@
 </svelte:head>
 
 <div class="min-h-screen bg-background text-foreground">
+	<ConnectionStatus />
 	<header class="border-b border-border/50 bg-background/80 px-6 py-3 backdrop-blur-sm">
 		<div class="mx-auto flex max-w-7xl items-baseline gap-3">
 			<h1 class="text-lg font-bold tracking-tight">NORM</h1>
