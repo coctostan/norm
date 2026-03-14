@@ -4,7 +4,6 @@ from fastapi import APIRouter, Depends, HTTPException
 
 from backend.config import save_config
 from backend.database import get_db
-from backend.watcher import sync_project_by_path
 from backend.models import (
     create_project,
     delete_project,
@@ -25,6 +24,7 @@ from backend.schemas import (
     ProjectResponse,
     ProjectStateResponse,
 )
+from backend.watcher import sync_project_by_path
 
 router = APIRouter(prefix="/api/projects", tags=["projects"])
 dashboard_router = APIRouter(tags=["dashboard"])
