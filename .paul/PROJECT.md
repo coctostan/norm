@@ -12,8 +12,8 @@ Developers managing multiple PALS projects can see the state of all their work i
 
 | Attribute | Value |
 |-----------|-------|
-| Version | 0.1.0 |
-| Status | v0.1 Foundation complete — all 4 phases shipped |
+| Version | 0.2.0-dev |
+| Status | v0.2 Operational in progress |
 | Last Updated | 2026-03-14 |
 
 ## Requirements
@@ -35,7 +35,11 @@ Developers managing multiple PALS projects can see the state of all their work i
 
 ### Active (In Progress)
 
-None — v0.1 Foundation complete.
+- [ ] Unified startup script — single command starts backend + frontend (dev + prod)
+- [ ] Project registration CLI — easy add/remove with config persistence
+- [ ] End-to-end validation — full loop verified with real PALS projects
+- [ ] Error handling & resilience — reconnection, watcher recovery, graceful shutdown
+- [ ] Performance validation — smooth operation with 5-10+ projects
 
 ### Planned (Next)
 

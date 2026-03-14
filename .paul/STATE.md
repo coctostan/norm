@@ -5,26 +5,26 @@
 See: .paul/PROJECT.md (updated 2026-03-14)
 
 **Core value:** Developers managing multiple PALS projects can see the state of all their work in one place
-**Current focus:** v0.1 Foundation — MILESTONE COMPLETE
+**Current focus:** v0.2 Operational — Make NORM a daily-use tool
 
 ## Current Position
 
-Milestone: v0.1 Foundation (v0.1.0)
-Phase: 4 of 4 (Detail Views & Polish) — Complete
-Plan: 04-03 unified, loop closed
-Status: Milestone complete
-Last activity: 2026-03-14 — Phase 4 complete, v0.1 Foundation milestone complete
+Milestone: v0.2 Operational (v0.2.0)
+Phase: 5 of 7 (Startup & Registration)
+Plan: 05-01 created, awaiting approval
+Status: PLAN created, ready for APPLY
+Last activity: 2026-03-14 — Created plan 05-01 (startup scripts + config persistence)
 
 Progress:
-- v0.1 Foundation: [██████████] 100%
-- Phase 4: [██████████] 100%
+- v0.2 Operational: [░░░░░░░░░░] 0%
+- Phase 5: [░░░░░░░░░░] 0%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [Loop complete — milestone finished]
+  ✓        ○        ○     [Plan created, awaiting approval]
 ```
 
 ## Performance Metrics
@@ -62,19 +62,20 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - None active
 
 ### Git State
-Last commit: 53dd601 (feature/04-detail-views-polish)
-Branch: feature/04-detail-views-polish
+Last commit: 2d99047 (main, squash-merged Phase 4 PR #4)
+Branch: main
 
 ## Session Continuity
 
 Last session: 2026-03-14
-Stopped at: Phase 4 complete, v0.1 Foundation milestone complete
-Next action: /paul:complete-milestone or next milestone planning
-Resume file: .paul/ROADMAP.md
+Stopped at: Plan 05-01 created, approved, ready for APPLY
+Next action: /paul:apply .paul/phases/05-startup-registration/05-01-PLAN.md
+Resume file: .paul/HANDOFF-2026-03-14-p5.md
 Resume context:
-- All 4 phases complete (8 plans total)
-- 39 tests passing (29 backend + 10 frontend)
-- Phase transition commit pending
+- Plan 05-01: Config file persistence + startup scripts (dev + prod)
+- 2 auto tasks + 1 human-verify checkpoint
+- No frontend changes — backend + shell scripting only
+- v0.1 milestone complete, CI green, PR #4 merged, git clean on main
 
 ---
 *STATE.md — Updated after every significant action*
