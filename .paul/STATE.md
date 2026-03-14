@@ -2,37 +2,37 @@
 
 ## Project Reference
 
-See: .paul/PROJECT.md (updated 2026-03-13)
+See: .paul/PROJECT.md (updated 2026-03-14)
 
 **Core value:** Developers managing multiple PALS projects can see the state of all their work in one place
-**Current focus:** v0.1 Foundation — Phase 3: Frontend Shell
+**Current focus:** v0.1 Foundation — MILESTONE COMPLETE
 
 ## Current Position
 
 Milestone: v0.1 Foundation (v0.1.0)
-Phase: 3 of 4 (Frontend Shell)
-Plan: Not started
-Status: Ready to plan
-Last activity: 2026-03-13 — Phase 2 complete, transitioned to Phase 3
+Phase: 4 of 4 (Detail Views & Polish) — Complete
+Plan: 04-03 unified, loop closed
+Status: Milestone complete
+Last activity: 2026-03-14 — Phase 4 complete, v0.1 Foundation milestone complete
 
 Progress:
-- v0.1 Foundation: [█████░░░░░] 50%
-- Phase 3: [░░░░░░░░░░] 0%
+- v0.1 Foundation: [██████████] 100%
+- Phase 4: [██████████] 100%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [Loop complete — ready for next PLAN]
+  ✓        ✓        ✓     [Loop complete — milestone finished]
 ```
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: ~12 min
-- Total execution time: ~0.75 hours
+- Total plans completed: 8
+- Average duration: ~14 min
+- Total execution time: ~1.6 hours
 
 ## Accumulated Context
 
@@ -49,6 +49,11 @@ PLAN ──▶ APPLY ──▶ UNIFY
 | Per-change DB connection in watcher | Phase 1 | Simpler lifecycle, no stale connections |
 | on_sync callback for watcher extensibility | Phase 2 | Decouples sync from notification |
 | Broadcast full project list on change | Phase 2 | Frontend gets complete state each update |
+| Class-based $state WebSocket store | Phase 3 | Svelte 5 runes pattern, cleaner than stores |
+| Vite proxy for /api and /ws in dev | Phase 3 | Avoids CORS, single origin in dev |
+| onclick+goto for Card navigation | Phase 4 | Svelte component nesting prevents `<a>` wrapping |
+| No Playwright/e2e for v0.1 | Phase 4 | Unit + integration sufficient for alpha |
+| Testable store mirror class | Phase 4 | Svelte 5 $state runes can't run outside compiler |
 
 ### Deferred Issues
 - None
@@ -57,21 +62,19 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - None active
 
 ### Git State
-Last commit: 54dd2f0 feat(02-api-websocket): dashboard API + WebSocket server + real-time push
-Branch: feature/02-01-api-websocket (pending merge to main)
+Last commit: 53dd601 (feature/04-detail-views-polish)
+Branch: feature/04-detail-views-polish
 
 ## Session Continuity
 
-Last session: 2026-03-13
-Stopped at: Phase 2 complete, Phase 3 ready to plan
-Next action: /paul:plan for Phase 3 (Frontend Shell)
-Resume file: .paul/HANDOFF-2026-03-13-p2.md
+Last session: 2026-03-14
+Stopped at: Phase 4 complete, v0.1 Foundation milestone complete
+Next action: /paul:complete-milestone or next milestone planning
+Resume file: .paul/ROADMAP.md
 Resume context:
-- Phase 2 complete: 1/1 plan, 46 tests, all passing
-- Backend has: REST API (dashboard + CRUD + sync + state), WebSocket server, file watcher with broadcast
-- Phase 3 next: Frontend Shell — SvelteKit + shadcn-svelte + WebSocket client
-- Branch: feature/02-01-api-websocket needs merge to main before Phase 3
-- Required skills for Phase 3: /sveltekit-svelte5-tailwind, /shadcn-svelte
+- All 4 phases complete (8 plans total)
+- 39 tests passing (29 backend + 10 frontend)
+- Phase transition commit pending
 
 ---
 *STATE.md — Updated after every significant action*

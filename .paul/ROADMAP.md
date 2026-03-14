@@ -7,8 +7,8 @@ NORM — Notifier & Observer for Running Milestones. A real-time monitoring dash
 ## Current Milestone
 
 **v0.1 Foundation** (v0.1.0)
-Status: 🚧 In Progress
-Phases: 2 of 4 complete
+Status: ✅ Complete
+Phases: 4 of 4 complete
 
 ## Phases
 
@@ -16,8 +16,8 @@ Phases: 2 of 4 complete
 |-------|------|-------|--------|-----------|
 | 1 | Backend Core | 3 | ✅ Complete | 2026-03-13 |
 | 2 | API & WebSocket | 1 | ✅ Complete | 2026-03-13 |
-| 3 | Frontend Shell | TBD | Not started | - |
-| 4 | Detail Views & Polish | TBD | Not started | - |
+| 3 | Frontend Shell | 1 | ✅ Complete | 2026-03-13 |
+| 4 | Detail Views & Polish | 3 | ✅ Complete | 2026-03-14 |
 
 ## Phase Details
 
@@ -69,7 +69,7 @@ Phases: 2 of 4 complete
 - Lucide icons integration
 
 **Plans:**
-- [ ] 03-01: TBD (defined during /paul:plan)
+- [x] 03-01: SvelteKit scaffolding + shadcn-svelte + WebSocket store + dashboard cards
 
 ### Phase 4: Detail Views & Polish
 
@@ -85,8 +85,10 @@ Phases: 2 of 4 complete
 - Performance tuning for 10+ projects
 
 **Plans:**
-- [ ] 04-01: TBD (defined during /paul:plan)
+- [x] 04-01: Project detail page + blocker alert surfacing
+- [x] 04-02: Dark mode polish + production adapter config
+- [x] 04-03: Backend + frontend test suites (29 + 10 tests)
 
 ---
 *Roadmap created: 2026-03-13*
-*Last updated: 2026-03-13 — Phase 2 complete*
+*Last updated: 2026-03-14 — Phase 4 complete, v0.1 Foundation milestone complete*
