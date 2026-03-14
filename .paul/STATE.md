@@ -68,12 +68,13 @@ Branch: main
 Last session: 2026-03-13
 Stopped at: Phase 3 complete, Phase 4 ready to plan
 Next action: /paul:plan for Phase 4 (Detail Views & Polish)
-Resume file: .paul/ROADMAP.md
+Resume file: .paul/HANDOFF-2026-03-13-p3.md
 Resume context:
 - Phase 3 complete: 1/1 plan, SvelteKit + shadcn-svelte + WebSocket store + dashboard cards
 - Frontend has: dashboard page, project cards, WebSocket client, dark theme
 - Phase 4 next: Detail Views & Polish — project detail page, blocker alerts, LayerChart, e2e tests
 - Required skills for Phase 4: /sveltekit-svelte5-tailwind, /shadcn-svelte (same as Phase 3)
+- Deferred to Phase 4: frontend tests, production adapter config
 
 ---
 *STATE.md — Updated after every significant action*
