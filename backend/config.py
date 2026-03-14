@@ -36,10 +36,7 @@ def load_config() -> list[dict]:
     if not data or not isinstance(data.get("projects"), list):
         return []
 
-    return [
-        p for p in data["projects"]
-        if isinstance(p, dict) and "name" in p and "path" in p
-    ]
+    return [p for p in data["projects"] if isinstance(p, dict) and "name" in p and "path" in p]
 
 
 def save_config(projects: list[dict]) -> None:
@@ -55,10 +52,7 @@ def save_config(projects: list[dict]) -> None:
         with open(config_file) as f:
             existing = yaml.safe_load(f) or {}
 
-    existing["projects"] = [
-        {"name": p["name"], "path": p["path"]}
-        for p in projects
-    ]
+    existing["projects"] = [{"name": p["name"], "path": p["path"]} for p in projects]
 
     with open(config_file, "w") as f:
         yaml.dump(existing, f, default_flow_style=False, sort_keys=False)
