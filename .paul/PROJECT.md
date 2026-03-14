@@ -13,7 +13,7 @@ Developers managing multiple PALS projects can see the state of all their work i
 | Attribute | Value |
 |-----------|-------|
 | Version | 0.1.0-alpha |
-| Status | Backend Core + API & WebSocket complete |
+| Status | Backend + API + WebSocket + Frontend Shell complete |
 | Last Updated | 2026-03-13 |
 
 ## Requirements
@@ -27,12 +27,13 @@ Developers managing multiple PALS projects can see the state of all their work i
 - [x] Real-time updates — WebSocket push when .paul/ files change — Phase 2
 - [x] WebSocket connection management — connect/disconnect/broadcast lifecycle — Phase 2
 
+- [x] Multi-project dashboard — cards showing phase, loop position, progress for each project — Phase 3
+- [x] Dark mode — monitoring tools should be dark-first — Phase 3
+
 ### Active (In Progress)
 
-- [ ] Multi-project dashboard — cards showing phase, loop position, progress for each project
 - [ ] Project detail view — roadmap, recent activity, decisions, blockers
 - [ ] Blocker/alert surfacing — highlight projects with active blockers at top level
-- [ ] Dark mode — monitoring tools should be dark-first
 
 ### Planned (Next)
 
@@ -89,6 +90,8 @@ Developers managing multiple PALS projects can see the state of all their work i
 | Regex parsing over markdown AST | No new deps, structured md has consistent formatting | 2026-03-13 | Active |
 | on_sync callback for watcher extensibility | Decouples sync from notification, backward compatible | 2026-03-13 | Active |
 | Broadcast full project list on state change | Simpler than per-project deltas, frontend gets complete state | 2026-03-13 | Active |
+| Class-based $state WebSocket store | Svelte 5 runes pattern, cleaner than Svelte stores | 2026-03-13 | Active |
+| Vite proxy for /api and /ws in dev | Avoids CORS config, single origin in development | 2026-03-13 | Active |
 
 ## Tech Stack
 
@@ -125,4 +128,4 @@ Quick Reference:
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-03-13 after Phase 2*
+*Last updated: 2026-03-13 after Phase 3*

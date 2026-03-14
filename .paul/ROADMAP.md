@@ -8,7 +8,7 @@ NORM — Notifier & Observer for Running Milestones. A real-time monitoring dash
 
 **v0.1 Foundation** (v0.1.0)
 Status: 🚧 In Progress
-Phases: 2 of 4 complete
+Phases: 3 of 4 complete
 
 ## Phases
 
@@ -16,7 +16,7 @@ Phases: 2 of 4 complete
 |-------|------|-------|--------|-----------|
 | 1 | Backend Core | 3 | ✅ Complete | 2026-03-13 |
 | 2 | API & WebSocket | 1 | ✅ Complete | 2026-03-13 |
-| 3 | Frontend Shell | TBD | Not started | - |
+| 3 | Frontend Shell | 1 | ✅ Complete | 2026-03-13 |
 | 4 | Detail Views & Polish | TBD | Not started | - |
 
 ## Phase Details
@@ -69,7 +69,7 @@ Phases: 2 of 4 complete
 - Lucide icons integration
 
 **Plans:**
-- [ ] 03-01: TBD (defined during /paul:plan)
+- [x] 03-01: SvelteKit scaffolding + shadcn-svelte + WebSocket store + dashboard cards
 
 ### Phase 4: Detail Views & Polish
 
@@ -89,4 +89,4 @@ Phases: 2 of 4 complete
 
 ---
 *Roadmap created: 2026-03-13*
-*Last updated: 2026-03-13 — Phase 2 complete*
+*Last updated: 2026-03-13 — Phase 3 complete*
