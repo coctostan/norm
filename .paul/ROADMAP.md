@@ -8,14 +8,14 @@ NORM — Notifier & Observer for Running Milestones. A real-time monitoring dash
 
 **v0.1 Foundation** (v0.1.0)
 Status: 🚧 In Progress
-Phases: 1 of 4 complete
+Phases: 2 of 4 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
 | 1 | Backend Core | 3 | ✅ Complete | 2026-03-13 |
-| 2 | API & WebSocket | TBD | Not started | - |
+| 2 | API & WebSocket | 1 | ✅ Complete | 2026-03-13 |
 | 3 | Frontend Shell | TBD | Not started | - |
 | 4 | Detail Views & Polish | TBD | Not started | - |
 
@@ -52,7 +52,7 @@ Phases: 1 of 4 complete
 - Connection management and reconnection handling
 
 **Plans:**
-- [ ] 02-01: TBD (defined during /paul:plan)
+- [x] 02-01: Dashboard API + WebSocket server + watcher integration
 
 ### Phase 3: Frontend Shell
 
@@ -89,4 +89,4 @@ Phases: 1 of 4 complete
 
 ---
 *Roadmap created: 2026-03-13*
-*Last updated: 2026-03-13 — Phase 1 complete*
+*Last updated: 2026-03-13 — Phase 2 complete*

@@ -1,7 +1,9 @@
 import asyncio
 import logging
 import os
+from collections.abc import Callable, Coroutine
 from pathlib import Path
+from typing import Any
 
 import aiosqlite
 from watchfiles import Change, awatch
@@ -16,6 +18,8 @@ from backend.models import (
 from backend.parser import parse_project_state
 
 logger = logging.getLogger(__name__)
+
+OnSyncCallback = Callable[[str], Coroutine[Any, Any, None]]
 
 MONITORED_FILES = {"STATE.md", "ROADMAP.md", "PROJECT.md"}
 
@@ -66,9 +70,10 @@ async def sync_project_by_path(db: aiosqlite.Connection, project_path: str) -> b
 class FileWatcher:
     """Watches .paul/ directories for registered projects and triggers sync on changes."""
 
-    def __init__(self) -> None:
+    def __init__(self, on_sync: OnSyncCallback | None = None) -> None:
         self._task: asyncio.Task | None = None
         self._stop_event = asyncio.Event()
+        self._on_sync = on_sync
 
     async def start(self) -> None:
         """Start the file watcher as a background task."""
@@ -132,7 +137,12 @@ class FileWatcher:
                         if project_path and project_path not in synced_paths:
                             async with aiosqlite.connect(settings.database_path) as db:
                                 db.row_factory = aiosqlite.Row
-                                await sync_project_by_path(db, project_path)
+                                synced = await sync_project_by_path(db, project_path)
+                            if synced and self._on_sync:
+                                try:
+                                    await self._on_sync(project_path)
+                                except Exception:
+                                    logger.exception("on_sync callback failed for %s", project_path)
                             synced_paths.add(project_path)
 
                     # After processing a batch of changes, refresh watch paths
