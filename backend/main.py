@@ -66,9 +66,7 @@ async def websocket_endpoint(websocket: WebSocket):
         async with aiosqlite.connect(settings.database_path) as db:
             db.row_factory = aiosqlite.Row
             projects = await get_dashboard_projects(db)
-        await manager.send_personal(
-            websocket, {"type": "initial_state", "projects": projects}
-        )
+        await manager.send_personal(websocket, {"type": "initial_state", "projects": projects})
         # Keep-alive loop — detect disconnects
         while True:
             await websocket.receive_text()
