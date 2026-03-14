@@ -1,7 +1,4 @@
-import pytest
-
 from backend.parser import parse_project_md, parse_roadmap_md, parse_state_md
-
 
 SAMPLE_STATE = """\
 # Project State

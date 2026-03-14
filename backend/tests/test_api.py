@@ -2,8 +2,8 @@ import pytest
 import pytest_asyncio
 from httpx import ASGITransport, AsyncClient
 
-from backend.database import init_db
 from backend.config import settings
+from backend.database import init_db
 
 
 @pytest_asyncio.fixture
