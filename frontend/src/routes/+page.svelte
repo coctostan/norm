@@ -16,10 +16,10 @@
 	);
 </script>
 
-<div class="space-y-6">
+<div class="space-y-4">
 	<div class="flex items-center justify-between">
-		<h2 class="text-lg font-semibold">Dashboard</h2>
-		<div class="flex items-center gap-2 text-sm text-muted-foreground">
+		<h2 class="text-sm font-semibold">Dashboard ({sortedProjects.length} project{sortedProjects.length !== 1 ? 's' : ''})</h2>
+		<div class="flex items-center gap-2 text-xs text-muted-foreground">
 			<span
 				class="inline-block h-2 w-2 rounded-full {wsStore.connected
 					? 'bg-emerald-500'
@@ -30,7 +30,7 @@
 	</div>
 
 	{#if blockedCount > 0}
-		<div class="rounded-md border border-destructive/50 bg-destructive/10 px-4 py-3">
+		<div class="rounded-md border border-destructive/50 bg-destructive/10 px-3 py-2">
 			<p class="text-sm font-medium text-destructive">
 				{blockedCount} project{blockedCount > 1 ? 's' : ''} with active blockers
 			</p>

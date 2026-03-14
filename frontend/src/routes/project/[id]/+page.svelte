@@ -29,12 +29,12 @@
 	<title>{project?.name ?? 'Project'} — NORM</title>
 </svelte:head>
 
-<div class="space-y-6">
+<div class="space-y-4">
 	<!-- Header -->
 	<div class="flex items-start justify-between">
 		<div>
-			<a href="/" class="text-sm text-muted-foreground hover:text-foreground">&larr; Dashboard</a>
-			<h2 class="mt-2 text-2xl font-bold">{project?.name ?? 'Unknown Project'}</h2>
+			<a href="/" class="text-xs text-muted-foreground hover:text-foreground">&larr; Dashboard</a>
+			<h2 class="mt-1 text-xl font-bold">{project?.name ?? 'Unknown Project'}</h2>
 			{#if project?.description}
 				<p class="mt-1 text-sm text-muted-foreground">{project.description}</p>
 			{/if}
@@ -46,9 +46,9 @@
 
 	<!-- Status Bar -->
 	{#if state}
-		<Card.Root>
-			<Card.Content class="pt-6">
-				<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+		<Card.Root class="border-l-2 border-l-primary">
+			<Card.Content class="pt-4">
+				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
 					<!-- Milestone -->
 					<div class="space-y-1">
 						<p class="text-xs font-medium text-muted-foreground">Milestone</p>
@@ -87,7 +87,7 @@
 				</div>
 
 				<!-- Progress Bars -->
-				<div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+				<div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
 					<div class="space-y-1.5">
 						<div class="flex items-center justify-between">
 							<p class="text-xs font-medium text-muted-foreground">Milestone Progress</p>
@@ -144,34 +144,32 @@
 				</Card.Description>
 			</Card.Header>
 			<Card.Content>
-				<div class="space-y-3">
-					{#each roadmap.phases as phase}
+				<div class="relative ml-3 border-l border-border/60">
+					{#each roadmap.phases as phase, i}
 						{@const isCurrent = state?.phase_number === phase.number}
 						<div
-							class="flex items-center justify-between rounded-md px-3 py-2 {isCurrent
-								? 'bg-accent'
+							class="relative flex items-center justify-between py-2 pl-6 pr-2 {isCurrent
+								? 'bg-accent/50 rounded-r-md'
 								: ''}"
 						>
-							<div class="flex items-center gap-3">
-								<span class="flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium {
-									phase.status.toLowerCase().includes('complete')
-										? 'bg-primary text-primary-foreground'
-										: isCurrent
-											? 'bg-secondary text-secondary-foreground'
-											: 'bg-muted text-muted-foreground'
-								}">
-									{#if phase.status.toLowerCase().includes('complete')}
-										&#x2713;
-									{:else}
-										{phase.number}
-									{/if}
-								</span>
-								<div>
-									<p class="text-sm font-medium">{phase.name}</p>
-									{#if phase.completed_date}
-										<p class="text-xs text-muted-foreground">Completed {phase.completed_date}</p>
-									{/if}
-								</div>
+							<div class="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium {
+								phase.status.toLowerCase().includes('complete')
+									? 'bg-primary text-primary-foreground'
+									: isCurrent
+										? 'bg-secondary text-secondary-foreground'
+										: 'bg-muted text-muted-foreground'
+							}">
+								{#if phase.status.toLowerCase().includes('complete')}
+									&#x2713;
+								{:else}
+									{phase.number}
+								{/if}
+							</div>
+							<div>
+								<p class="text-sm font-medium">{phase.name}</p>
+								{#if phase.completed_date}
+									<p class="text-xs text-muted-foreground">Completed {phase.completed_date}</p>
+								{/if}
 							</div>
 							<div class="flex items-center gap-2">
 								{#if phase.plan_count != null}
@@ -198,22 +196,22 @@
 			</Card.Header>
 			<Card.Content>
 				<div class="overflow-x-auto">
-					<table class="w-full text-sm">
+					<table class="w-full text-xs">
 						<thead>
 							<tr class="border-b border-border text-left">
-								<th class="pb-2 pr-4 font-medium text-muted-foreground">Decision</th>
-								<th class="pb-2 pr-4 font-medium text-muted-foreground">Rationale</th>
-								<th class="pb-2 pr-4 font-medium text-muted-foreground">Date</th>
-								<th class="pb-2 font-medium text-muted-foreground">Status</th>
+								<th class="pb-1.5 pr-3 font-medium text-muted-foreground">Decision</th>
+								<th class="pb-1.5 pr-3 font-medium text-muted-foreground">Rationale</th>
+								<th class="pb-1.5 pr-3 font-medium text-muted-foreground">Date</th>
+								<th class="pb-1.5 font-medium text-muted-foreground">Status</th>
 							</tr>
 						</thead>
 						<tbody>
 							{#each state.decisions as decision}
 								<tr class="border-b border-border/50">
-									<td class="py-2 pr-4">{decision.decision ?? ''}</td>
-									<td class="py-2 pr-4 text-muted-foreground">{decision.rationale ?? ''}</td>
-									<td class="py-2 pr-4 text-muted-foreground">{decision.date ?? ''}</td>
-									<td class="py-2">
+									<td class="py-1.5 pr-3">{decision.decision ?? ''}</td>
+									<td class="py-1.5 pr-3 text-muted-foreground">{decision.rationale ?? ''}</td>
+									<td class="py-1.5 pr-3 text-muted-foreground whitespace-nowrap">{decision.date ?? ''}</td>
+									<td class="py-1.5">
 										{#if decision.status}
 											<Badge variant="outline" class="text-xs">{decision.status}</Badge>
 										{/if}

@@ -86,7 +86,7 @@ Phases: 3 of 4 complete
 
 **Plans:**
 - [x] 04-01: Project detail page + blocker alert surfacing
-- [ ] 04-02: Dark mode polish + production adapter config
+- [x] 04-02: Dark mode polish + production adapter config
 - [ ] 04-03: Frontend tests + e2e tests + performance validation
 
 ---

@@ -19,13 +19,13 @@
 </script>
 
 <Card.Root
-	class="flex cursor-pointer flex-col transition-colors hover:border-foreground/25"
+	class="flex cursor-pointer flex-col transition-all hover:border-foreground/25 hover:shadow-md hover:shadow-black/20"
 	onclick={() => goto(`/project/${project.id}`)}
 	role="link"
 	tabindex={0}
 	onkeydown={(e: KeyboardEvent) => { if (e.key === 'Enter') goto(`/project/${project.id}`); }}
 >
-	<Card.Header class="pb-3">
+	<Card.Header class="pb-2">
 		<div class="flex items-start justify-between">
 			<div>
 				<Card.Title class="text-base">{project.name}</Card.Title>
@@ -44,11 +44,11 @@
 		</div>
 	</Card.Header>
 
-	<Card.Content class="flex-1 space-y-4">
+	<Card.Content class="flex-1 space-y-3">
 		<!-- Loop Position -->
-		<div class="space-y-1.5">
+		<div class="space-y-1">
 			<p class="text-xs font-medium text-muted-foreground">Loop</p>
-			<div class="flex items-center gap-2">
+			<div class="flex items-center gap-1.5">
 				<Badge variant={project.loop_plan ? 'default' : 'outline'} class="text-xs">
 					Plan
 				</Badge>
@@ -64,7 +64,7 @@
 		</div>
 
 		<!-- Progress -->
-		<div class="space-y-1.5">
+		<div class="space-y-1">
 			<div class="flex items-center justify-between">
 				<p class="text-xs font-medium text-muted-foreground">Phase Progress</p>
 				<span class="text-xs text-muted-foreground">{phaseProgress}%</span>
