@@ -7,13 +7,7 @@ import pytest
 from backend.config import settings
 from backend.database import init_db
 from backend.main import app
-from backend.models import create_project, upsert_project_state
-from backend.parser_models import (
-    ParsedProject,
-    ParsedRoadmap,
-    ParsedState,
-    ProjectFullState,
-)
+from backend.models import create_project
 from backend.websocket import ConnectionManager
 
 
@@ -21,11 +15,16 @@ from backend.websocket import ConnectionManager
 async def setup_test_db(tmp_path):
     """Use a temporary database for each test."""
     db_path = tmp_path / "test.db"
-    original = settings.database_path
+    config_path = tmp_path / "test_norm.yaml"
+    config_path.write_text("projects: []\n")
+    original_db = settings.database_path
+    original_config = settings.config_path
     settings.database_path = db_path
+    settings.config_path = config_path
     await init_db()
     yield
-    settings.database_path = original
+    settings.database_path = original_db
+    settings.config_path = original_config
 
 
 # --- ConnectionManager unit tests ---
@@ -67,11 +66,11 @@ async def test_websocket_connect_and_initial_state():
     from starlette.testclient import TestClient
 
     with TestClient(app) as tc:
-            with tc.websocket_connect("/ws") as ws:
-                data = ws.receive_json()
-                assert data["type"] == "initial_state"
-                assert "projects" in data
-                assert isinstance(data["projects"], list)
+        with tc.websocket_connect("/ws") as ws:
+            data = ws.receive_json()
+            assert data["type"] == "initial_state"
+            assert "projects" in data
+            assert isinstance(data["projects"], list)
 
 
 async def test_websocket_connect_with_project():
@@ -80,23 +79,15 @@ async def test_websocket_connect_with_project():
         paul_dir = os.path.join(tmpdir, ".paul")
         os.makedirs(paul_dir)
 
-        # Register a project and sync state
+        # Write a STATE.md so auto-sync on startup produces valid data
+        with open(os.path.join(paul_dir, "STATE.md"), "w") as f:
+            f.write("# Project State\n\n## Current Position\n\n")
+            f.write("Milestone: v0.1\nPhase: 1 of 3 (Core)\n")
+
+        # Register a project (lifespan auto-sync will parse STATE.md)
         async with aiosqlite.connect(settings.database_path) as db:
             db.row_factory = aiosqlite.Row
-            result = await create_project(db, "WSTest", tmpdir)
-            project_id = result["id"]
-            parsed = ProjectFullState(
-                state=ParsedState(
-                    milestone="v0.1",
-                    phase_number=1,
-                    phase_total=3,
-                    phase_name="Core",
-                ),
-                roadmap=ParsedRoadmap(),
-                project=ParsedProject(name="WSTest"),
-                synced_at="2026-03-13T12:00:00",
-            )
-            await upsert_project_state(db, project_id, parsed)
+            await create_project(db, "WSTest", tmpdir)
 
         from starlette.testclient import TestClient
 
