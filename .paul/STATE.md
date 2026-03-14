@@ -57,20 +57,21 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - None active
 
 ### Git State
-Last commit: 76540f1 feat(01-backend-core): file watcher + phase 1 complete (#2)
-Branch: main
+Last commit: 54dd2f0 feat(02-api-websocket): dashboard API + WebSocket server + real-time push
+Branch: feature/02-01-api-websocket (pending merge to main)
 
 ## Session Continuity
 
 Last session: 2026-03-13
 Stopped at: Phase 2 complete, Phase 3 ready to plan
 Next action: /paul:plan for Phase 3 (Frontend Shell)
-Resume file: .paul/ROADMAP.md
+Resume file: .paul/HANDOFF-2026-03-13-p2.md
 Resume context:
 - Phase 2 complete: 1/1 plan, 46 tests, all passing
 - Backend has: REST API (dashboard + CRUD + sync + state), WebSocket server, file watcher with broadcast
 - Phase 3 next: Frontend Shell — SvelteKit + shadcn-svelte + WebSocket client
-- Branch: feature/02-01-api-websocket (pending commit + merge)
+- Branch: feature/02-01-api-websocket needs merge to main before Phase 3
+- Required skills for Phase 3: /sveltekit-svelte5-tailwind, /shadcn-svelte
 
 ---
 *STATE.md — Updated after every significant action*
