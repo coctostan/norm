@@ -4,6 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException
 
 from backend.config import save_config
 from backend.database import get_db
+from backend.watcher import sync_project_by_path
 from backend.models import (
     create_project,
     delete_project,
@@ -58,6 +59,9 @@ async def register_project(project: ProjectCreate, db=Depends(get_db)):
     # Persist to config file
     all_projects = await list_projects(db)
     save_config(all_projects)
+
+    # Auto-sync so project details are available immediately
+    await sync_project_by_path(db, abs_path)
 
     return result
 

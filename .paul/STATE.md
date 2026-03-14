@@ -10,14 +10,14 @@ See: .paul/PROJECT.md (updated 2026-03-14)
 ## Current Position
 
 Milestone: v0.2 Operational (v0.2.0)
-Phase: 6 of 7 (E2E Validation & Bug Fixes)
+Phase: 7 of 7 (Resilience & Polish)
 Plan: Not started
 Status: Ready to plan
-Last activity: 2026-03-14 — Phase 5 complete, transitioned to Phase 6
+Last activity: 2026-03-14 — Phase 6 complete, transitioned to Phase 7
 
 Progress:
-- v0.2 Operational: [███░░░░░░░] 33%
-- Phase 6: [░░░░░░░░░░] 0%
+- v0.2 Operational: [██████░░░░] 66%
+- Phase 7: [░░░░░░░░░░] 0%
 
 ## Loop Position
 
@@ -30,9 +30,9 @@ PLAN ──▶ APPLY ──▶ UNIFY
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
+- Total plans completed: 10
 - Average duration: ~14 min
-- Total execution time: ~1.9 hours
+- Total execution time: ~2.1 hours
 
 ## Accumulated Context
 
@@ -56,6 +56,8 @@ PLAN ──▶ APPLY ──▶ UNIFY
 | Testable store mirror class | Phase 4 | Svelte 5 $state runes can't run outside compiler |
 | load_config/save_config as plain functions | Phase 5 | Simple, matches existing config.py style |
 | save_config preserves YAML settings section | Phase 5 | User settings survive project mutations |
+| Direct WebSocket URL in dev mode | Phase 6 | Bypasses unreliable Vite WS proxy |
+| Sync all projects on startup | Phase 6 | Dashboard shows full details immediately |
 
 ### Deferred Issues
 - None
@@ -64,19 +66,19 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - None active
 
 ### Git State
-Last commit: 2d99047 (main, squash-merged Phase 4 PR #4)
-Branch: main
+Last commit: 0132fda (feature/05-startup-registration, Phase 5 complete)
+Branch: feature/05-startup-registration
 
 ## Session Continuity
 
 Last session: 2026-03-14
-Stopped at: Phase 5 complete, ready to plan Phase 6
-Next action: /paul:plan for Phase 6
+Stopped at: Phase 6 complete, ready to plan Phase 7
+Next action: /paul:plan for Phase 7
 Resume file: .paul/ROADMAP.md
 Resume context:
-- Phase 5 complete: config persistence + startup scripts
-- v0.2 Operational: 1/3 phases done
-- Phase 6: E2E Validation & Bug Fixes — register real projects, smoke test full loop
+- Phase 6 complete: auto-sync + WebSocket fix + E2E validated
+- v0.2 Operational: 2/3 phases done
+- Phase 7: Resilience & Polish — reconnection, error handling, performance
 - 29 backend + 10 frontend tests pass, 0 TS errors
 
 ---

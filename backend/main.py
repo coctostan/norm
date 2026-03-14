@@ -31,6 +31,7 @@ async def lifespan(app: FastAPI):
 
     from backend.config import load_config
     from backend.models import create_project, list_projects
+    from backend.watcher import sync_project_by_path
 
     logger = logging.getLogger(__name__)
 
@@ -51,6 +52,16 @@ async def lifespan(app: FastAPI):
                         logger.info("Auto-registered project from config: %s", proj["name"])
                     except Exception:
                         logger.warning("Failed to register project from config: %s", proj["name"])
+
+    # Auto-sync all projects on startup so dashboard shows details immediately
+    async with aiosqlite.connect(settings.database_path) as db:
+        db.row_factory = aiosqlite.Row
+        all_projects = await list_projects(db)
+        for proj in all_projects:
+            try:
+                await sync_project_by_path(db, proj["path"])
+            except Exception:
+                logger.warning("Failed to sync project on startup: %s", proj["name"])
 
     watcher = FileWatcher(on_sync=_on_sync)
     await watcher.start()

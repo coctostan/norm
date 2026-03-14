@@ -34,10 +34,11 @@ Developers managing multiple PALS projects can see the state of all their work i
 - [x] Frontend test suite — 10 tests (WebSocket store) — Phase 4
 - [x] Unified startup script — single command starts backend + frontend (dev + prod) — Phase 5
 - [x] Config file persistence — projects survive restart via norm.yaml — Phase 5
+- [x] End-to-end validation — full loop verified with real PALS projects — Phase 6
+- [x] Auto-sync on startup/registration — immediate state availability — Phase 6
 
 ### Active (In Progress)
 
-- [ ] End-to-end validation — full loop verified with real PALS projects
 - [ ] Error handling & resilience — reconnection, watcher recovery, graceful shutdown
 - [ ] Performance validation — smooth operation with 5-10+ projects
 
@@ -138,4 +139,4 @@ Quick Reference:
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-03-14 after Phase 5 — Startup & Registration complete*
+*Last updated: 2026-03-14 after Phase 6 — E2E Validation complete*
