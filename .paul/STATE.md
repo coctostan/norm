@@ -2,37 +2,37 @@
 
 ## Project Reference
 
-See: .paul/PROJECT.md (updated 2026-03-13)
+See: .paul/PROJECT.md (updated 2026-03-14)
 
 **Core value:** Developers managing multiple PALS projects can see the state of all their work in one place
-**Current focus:** v0.1 Foundation — Phase 4: Detail Views & Polish
+**Current focus:** v0.1 Foundation — MILESTONE COMPLETE
 
 ## Current Position
 
 Milestone: v0.1 Foundation (v0.1.0)
-Phase: 4 of 4 (Detail Views & Polish)
-Plan: 04-03 executed, awaiting UNIFY
-Status: APPLY complete, ready for UNIFY
-Last activity: 2026-03-14 — Executed 04-03 (backend + frontend test suites)
+Phase: 4 of 4 (Detail Views & Polish) — Complete
+Plan: 04-03 unified, loop closed
+Status: Milestone complete
+Last activity: 2026-03-14 — Phase 4 complete, v0.1 Foundation milestone complete
 
 Progress:
-- v0.1 Foundation: [█████████░] 95%
-- Phase 4: [█████████░] 90%
+- v0.1 Foundation: [██████████] 100%
+- Phase 4: [██████████] 100%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ○     [Executed, awaiting reconciliation]
+  ✓        ✓        ✓     [Loop complete — milestone finished]
 ```
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
+- Total plans completed: 8
 - Average duration: ~14 min
-- Total execution time: ~1.4 hours
+- Total execution time: ~1.6 hours
 
 ## Accumulated Context
 
@@ -52,28 +52,29 @@ PLAN ──▶ APPLY ──▶ UNIFY
 | Class-based $state WebSocket store | Phase 3 | Svelte 5 runes pattern, cleaner than stores |
 | Vite proxy for /api and /ws in dev | Phase 3 | Avoids CORS, single origin in dev |
 | onclick+goto for Card navigation | Phase 4 | Svelte component nesting prevents `<a>` wrapping |
+| No Playwright/e2e for v0.1 | Phase 4 | Unit + integration sufficient for alpha |
+| Testable store mirror class | Phase 4 | Svelte 5 $state runes can't run outside compiler |
 
 ### Deferred Issues
-- None (frontend tests added in 04-03)
+- None
 
 ### Blockers/Concerns
 - None active
 
 ### Git State
-Last commit: 0c08e64 (main, squash-merged Phase 2)
-Branch: main
+Last commit: 7d1ac2b (feature/04-detail-views-polish)
+Branch: feature/04-detail-views-polish
 
 ## Session Continuity
 
 Last session: 2026-03-14
-Stopped at: Plan 04-03 APPLY complete, session paused for context limit
-Next action: /paul:unify .paul/phases/04-detail-views-polish/04-03-PLAN.md
-Resume file: .paul/HANDOFF-2026-03-14-p4.md
+Stopped at: Phase 4 complete, v0.1 Foundation milestone complete
+Next action: /paul:complete-milestone or next milestone planning
+Resume file: .paul/ROADMAP.md
 Resume context:
-- Plan 04-01 complete: detail page, clickable cards, blocker alerts
-- Plan 04-02 complete: dark mode polish + adapter-node
-- Plan 04-03 executed: 29 backend + 10 frontend tests (awaiting UNIFY)
-- UNIFY will trigger phase transition → milestone v0.1 complete
+- All 4 phases complete (8 plans total)
+- 39 tests passing (29 backend + 10 frontend)
+- Phase transition commit pending
 
 ---
 *STATE.md — Updated after every significant action*

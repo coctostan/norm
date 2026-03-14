@@ -12,9 +12,9 @@ Developers managing multiple PALS projects can see the state of all their work i
 
 | Attribute | Value |
 |-----------|-------|
-| Version | 0.1.0-alpha |
-| Status | Backend + API + WebSocket + Frontend Shell complete |
-| Last Updated | 2026-03-13 |
+| Version | 0.1.0 |
+| Status | v0.1 Foundation complete — all 4 phases shipped |
+| Last Updated | 2026-03-14 |
 
 ## Requirements
 
@@ -26,14 +26,16 @@ Developers managing multiple PALS projects can see the state of all their work i
 - [x] Dashboard API — all projects with inline state in single endpoint — Phase 2
 - [x] Real-time updates — WebSocket push when .paul/ files change — Phase 2
 - [x] WebSocket connection management — connect/disconnect/broadcast lifecycle — Phase 2
-
 - [x] Multi-project dashboard — cards showing phase, loop position, progress for each project — Phase 3
 - [x] Dark mode — monitoring tools should be dark-first — Phase 3
+- [x] Project detail view — roadmap, recent activity, decisions, blockers — Phase 4
+- [x] Blocker/alert surfacing — highlight projects with active blockers at top level — Phase 4
+- [x] Backend test suite — 29 tests (parser + API) — Phase 4
+- [x] Frontend test suite — 10 tests (WebSocket store) — Phase 4
 
 ### Active (In Progress)
 
-- [ ] Project detail view — roadmap, recent activity, decisions, blockers
-- [ ] Blocker/alert surfacing — highlight projects with active blockers at top level
+None — v0.1 Foundation complete.
 
 ### Planned (Next)
 
@@ -92,6 +94,8 @@ Developers managing multiple PALS projects can see the state of all their work i
 | Broadcast full project list on state change | Simpler than per-project deltas, frontend gets complete state | 2026-03-13 | Active |
 | Class-based $state WebSocket store | Svelte 5 runes pattern, cleaner than Svelte stores | 2026-03-13 | Active |
 | Vite proxy for /api and /ws in dev | Avoids CORS config, single origin in development | 2026-03-13 | Active |
+| No Playwright/e2e for v0.1 | Unit + integration tests sufficient for alpha | 2026-03-14 | Active |
+| Testable store mirror class | Svelte 5 $state runes can't run outside compiler | 2026-03-14 | Active |
 
 ## Tech Stack
 
@@ -128,4 +132,4 @@ Quick Reference:
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-03-13 after Phase 3*
+*Last updated: 2026-03-14 after Phase 4 — v0.1 Foundation complete*
